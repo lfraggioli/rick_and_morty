@@ -1,12 +1,13 @@
 import Card from "./Card";
-
+import { Contenedor } from "./styledComponents";
 export default function Cards(props) {
   return (
-    <div>
+    <Contenedor>
       {props.characters.map((character) => {
         //*Instancio una clase <Card/> y le paso los datos
 
         return (
+          
           <Card
             key={character.id}
             name={character.name}
@@ -19,7 +20,7 @@ export default function Cards(props) {
           />
         );
       })}
-    </div>
+    </Contenedor>
   );
 }
 
