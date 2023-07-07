@@ -1,13 +1,13 @@
 import React from "react";
 import { CardStyle, CharacterName, CardText, Salir, FullText, ImageCard } from "./styledComponents";
 
-export default function Card (props) {
-  const {id, name, status, species, gender, origin, image, onClose} = props
+export default function Card ({name, status, species, gender, origin, image, onClose, id}) {
+  
   
   return (
       
           <CardStyle>
-            <Salir onClick={onClose}>X</Salir>
+            <Salir onClick={() => onClose(id)}>X</Salir>
            <ImageCard src={image} alt="" />
             <FullText>
             <CharacterName>{name}</CharacterName>

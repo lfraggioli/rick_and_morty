@@ -34,8 +34,9 @@ export const CardStyle = styled.div`
     #0f2027
   ); /* Chrome 10-25, Safari 5.1-6 */
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.4);
+  
   display: flex;
-  font-family: monospace;
+  font-family: 'Prompt';
   justify-content: center;
   margin: 5em;
   padding: 2rem 1rem;
@@ -47,7 +48,9 @@ export const CardStyle = styled.div`
   &:hover {
     transform: translateY(20px);
     cursor: pointer;
-    box-shadow: 3px 6px 10px rgba(31, 179, 18, 0.8);
+    box-shadow: 3px 6px 10px rgba(31, 179, 18, 0.5);
+    
+    border-radius: 3%;
   }
   &:before {
     content: "";
@@ -59,28 +62,31 @@ export const CardStyle = styled.div`
     height: 100%;
     z-index: 2;
     transition: 0.5 all;
+    
+    border-radius: 3%;
     opacity: 1;
   }
 
   &:hover:before {
+    border-radius: 3%;
     opacity: 1;
     background: linear-gradient(
       to bottom,
       rgba(44, 83, 100, 0.05),
-      rgba(15, 32, 39, 0.7)
+      rgba(15, 32, 39, 0.5)
     );
   }
 `;
 export const CardText = styled.p`
   color: white;
-  font-size: 1.2em;
+  font-size: .9em;
 `;
 
 export const CharacterName = styled.h2`
   color: white;
   font-weight: bold;
-  font-size: 2.8em;
-  padding-bottom: 0.2em;
+  font-size: 1.9em;
+  padding-bottom: 0.3em;
 `;
 
 export const Contenedor = styled.div`
@@ -109,6 +115,8 @@ export const ImageCard = styled.img`
   position: absolute;
   top: 0;
   left: 0;
+  
+  border-radius: 3%;
   object-fit: cover;
 `;
 export const Input = styled.input`
