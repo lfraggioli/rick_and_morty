@@ -1,4 +1,5 @@
 import "./App.css";
+import axios from 'axios';
 //*React HOOK 👇🏻
 import { useEffect, useState } from "react";
 //?-------------------------------------------------------------
@@ -15,11 +16,19 @@ import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const searchCharacter = (id) => {
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
-      .then((res) => res.json())
-      .then((data) => setCharacters([...characters, data]));
-  };
+  const onSearch = (id) => {
+  axios(`http://localhost:3001/rickandmorty/character/${id}`)
+    .then(({ data }) => {
+      if (!characters.find((char) => char.id === data.id)) {
+        if (data?.name) {
+          setCharacters((oldCharacters) => [...oldCharacters, data]);
+        }
+      } else {
+        window.alert(`Ya existe un personaje con el id ${id}`);
+      }
+    })
+    .catch((err) => alert(err.response.data));
+};
 
   const onClose = (id) => {     
     setCharacters(characters.filter(char => char.id !== id));
@@ -50,7 +59,7 @@ function App() {
     return (
     <>
     {/* <Nav onSearch={searchCharacter} /> */}
-    {pathname !== '/' && <Nav onSearch={searchCharacter} /> }
+    {pathname !== '/' && <Nav onSearch={onSearch} /> }
     <Routes>
       <Route path="/" element={<Form login={login} />}></Route>
       <Route path="/about" element={<About/>}></Route>
