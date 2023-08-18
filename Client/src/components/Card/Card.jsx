@@ -21,6 +21,8 @@ export class Card extends Component {
     this.checkIfFavorite();
   }
 
+
+  
   checkIfFavorite = () => {
     const { myFavorites, id } = this.props;
     const isFavorite = myFavorites.some((fav) => fav.id === id);
@@ -39,16 +41,19 @@ export class Card extends Component {
       const { name, status, species, gender, origin, image } = this.props;
       addFav({ name, status, species, gender, origin, image, id });
     }
+    
+    
   };
 
   render() {
     const { name, status, species, gender, origin, image, id, onClose } =
       this.props;
     const { isFav } = this.state;
-
+    
     return (
       // <CardStyle>
       <>
+      
           <CardStyled>
         <DivButton>
           {isFav ? (
@@ -57,8 +62,7 @@ export class Card extends Component {
             <FavButton  onClick={this.handleFavorite}>🤍</FavButton>
           )}
           ;
-        
-          <Salir onClick={() => onClose(id)} >X</Salir>
+       <Salir  onClick={() => onClose(id)} >X</Salir>
         </DivButton>
         <CardContent>
         <ImageCard src={image} alt="" />
