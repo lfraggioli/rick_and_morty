@@ -1,5 +1,6 @@
 const express = require('express')
 const server = require('./app')
+const {conn} = require('./DB_connection')
 const PORT = 3001
 const router = require('../routes/index')
 
@@ -25,9 +26,15 @@ const router = require('../routes/index')
 // server.use('/rickandmorty', router)
 
 
-server.listen(PORT, ()=>{
-  console.log(`Servidor en puerto ${PORT}`)
+conn.sync({alter: true}).then(()=>{
+  server.listen(PORT, ()=>{
+    console.log(`Servidor corriendo en puerto ${PORT}`);
+  })
 })
+
+// server.listen(PORT, ()=>{
+//   console.log(`Servidor en puerto ${PORT}`)
+// })
 
 
 
