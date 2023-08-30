@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
-import { orderCards, filterCards } from "../../redux/actions.js"; // Importa las actions que hayas creado
+import { orderCards, filterCards, getFav } from "../../redux/actions.js"; // Importa las actions que hayas creado
 import { StyledSelect, ContenedorFav } from "./FavouritesButton.js";
 import Card from "../Card/Card.jsx";
 
 function Favorites() {
   const myFavorites = useSelector((state) => state.myFavorites);
+  console.log("prueba: ", myFavorites);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getFav());
+  }, []);
+
   const [aux, setAux] = useState(false);
   const optionsGender = ["All", "Male", "Female", "Genderless", "unknown"];
+
   const handleOrder = (e) => {
     dispatch(orderCards(e.target.value));
     setAux(!aux); // Cambiar el valor de 'aux' al valor opuesto
@@ -58,10 +65,5 @@ function Favorites() {
     </>
   );
 }
-export const mapStateToProps = (state) => {
-  return {
-    myFavorites: state.myFavorites,
-  };
-};
 
-export default connect(mapStateToProps)(Favorites);
+export default Favorites;

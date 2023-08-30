@@ -1,8 +1,17 @@
-import { ADD_FAV, REMOVE_FAV, FILTER_FAV, ORDER_FAV } from "./actionTypes";
+import {
+  ADD_FAV,
+  REMOVE_FAV,
+  FILTER_FAV,
+  ORDER_FAV,
+  GET_FAV,
+  LOGIN,
+} from "./actionTypes";
 
 const initialState = {
   myFavorites: [],
   allCharacters: [],
+
+  access: false,
   detail: {},
 };
 
@@ -11,15 +20,23 @@ function rootReducer(state = initialState, action) {
     case ADD_FAV:
       return {
         ...state,
-        myFavorites: [...state.myFavorites, action.payload],
+        myFavorites: action.payload,
         allCharacters: [...state.allCharacters, action.payload],
+      };
+    case GET_FAV:
+      return {
+        ...state,
+        myFavorites: action.payload,
       };
     case REMOVE_FAV:
       return {
         ...state,
-        myFavorites: state.myFavorites.filter(
-          (char) => char.id !== action.payload.id // Filtrar y eliminar el personaje que coincide por ID
-        ),
+        myFavorites: action.payload,
+      };
+    case LOGIN:
+      return {
+        ...state,
+        access: action.payload,
       };
     case FILTER_FAV:
       let favoriteFiltered =

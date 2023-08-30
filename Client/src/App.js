@@ -10,20 +10,18 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
+import { useDispatch, useSelector } from "react-redux";
+import { loginState } from "./redux/actions";
 
 function App() {
+  const dispatch = useDispatch();
+  const access = useSelector((state) => state.access);
   const login = async (userData) => {
-    const URL = "http://localhost:3001/rickandmorty/login/";
-
     try {
       const { email, password } = userData;
 
       //*Envío datos por QUERY
-      const { data } = await axios(
-        `${URL}?email=${email}&password=${password}`
-      );
-      const { access } = data;
-      setAccess(access);
+      dispatch(loginState(email, password));
       access ? navigate("/home") : alert("¡Datos incorrectos!");
     } catch (error) {
       console.log(error.message);
@@ -56,7 +54,6 @@ function App() {
 
   const { pathname } = useLocation();
 
-  const [access, setAccess] = useState(false);
   //!React-router-dom👇🏻
   const navigate = useNavigate();
   useEffect(() => {
