@@ -54,7 +54,7 @@ const Form = ({ login }) => {
               value={form.email}
               onChange={handleChange}
             />
-            <TextInput>lucas@mail.com</TextInput>
+            <TextInput>abc@mail.com</TextInput>
             <span>{errors.email}</span>
           </div>
           <div>
@@ -65,7 +65,7 @@ const Form = ({ login }) => {
               value={form.password}
               onChange={handleChange}
             />
-            <TextInput>asd12345</TextInput>
+            <TextInput>1234</TextInput>
           </div>
           </TextDiv>
           <LoginButton type="submit">Login</LoginButton>

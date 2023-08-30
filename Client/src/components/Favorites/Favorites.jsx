@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { connect } from "react-redux";
-import Card from "../Card/Card.jsx"; 
+import { connect, useSelector, useDispatch } from "react-redux";
 import { orderCards, filterCards } from "../../redux/actions.js"; // Importa las actions que hayas creado
-import { useDispatch } from "react-redux";
-import { StyledSelect, ContenedorFav, Container, SelectorDiv } from "./FavouritesButton.js";
+import { StyledSelect, ContenedorFav } from "./FavouritesButton.js";
+import Card from "../Card/Card.jsx";
 
-function Favorites( ) {
-  const myFavorites = useSelector(state => state.myFavorites)
+function Favorites() {
+  const myFavorites = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
   const [aux, setAux] = useState(false);
   const optionsGender = ["All", "Male", "Female", "Genderless", "unknown"];
-  const handleOrder = (e)=>{
+  const handleOrder = (e) => {
     dispatch(orderCards(e.target.value));
     setAux(!aux); // Cambiar el valor de 'aux' al valor opuesto
   };
@@ -28,38 +26,38 @@ function Favorites( ) {
     }
   };
 
-
   return (
     <>
-    <StyledSelect onChange={handleOrder}>
-          <option value="A">Ascendente</option>
-          <option value="D">Descendente</option>
-        </StyledSelect>
-      
-        <StyledSelect onChange={handleFilter}>
-        {optionsGender.map(option => 
-          <option key={option} value={option}> {option} </option>
-        )}
-        </StyledSelect>
-       
-          
-    <ContenedorFav>
-      {myFavorites?.map((favorite) => (
-        <Card
-          key={favorite.id}
-          id={favorite.id}
-          name={favorite.name}
-          status={favorite.status}
-          species={favorite.species}
-          image={favorite.image}
-          origin={favorite.origin} 
-          gender={favorite.gender} 
-        />
-      ))}
-    </ContenedorFav></>
+      <StyledSelect onChange={handleOrder}>
+        <option value="A">Ascendente</option>
+        <option value="D">Descendente</option>
+      </StyledSelect>
+
+      <StyledSelect onChange={handleFilter}>
+        {optionsGender.map((option) => (
+          <option key={option} value={option}>
+            {" "}
+            {option}{" "}
+          </option>
+        ))}
+      </StyledSelect>
+
+      <ContenedorFav>
+        {myFavorites.map((favorite) => (
+          <Card
+            key={favorite.id}
+            id={favorite.id}
+            name={favorite.name}
+            status={favorite.status}
+            species={favorite.species}
+            image={favorite.image}
+            gender={favorite.gender}
+          />
+        ))}
+      </ContenedorFav>
+    </>
   );
 }
-
 export const mapStateToProps = (state) => {
   return {
     myFavorites: state.myFavorites,

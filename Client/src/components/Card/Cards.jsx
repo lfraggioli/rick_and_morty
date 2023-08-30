@@ -7,7 +7,7 @@
 //     <Contenedor>
 //       {characters.map((character) => {
 //         return (
-          
+
 //           <Card
 //             key={character.id}
 //             id={character.id}
@@ -31,18 +31,16 @@ import Card from "./Card";
 import { Contenedor } from "../styledComponents";
 
 class Cards extends Component {
-
+  // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
   }
 
-
   render() {
     const { characters, onClose } = this.props;
-
     return (
       <Contenedor>
-        {this.props.characters.map((character) => {
+        {characters.map((character) => {
           return (
             <Card
               key={character.id}
@@ -63,7 +61,3 @@ class Cards extends Component {
 }
 
 export default Cards;
-
-
-
-

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const AgregarBoton = styled.button`
-  background-color: #6EE649;
+  background-color: #6ee649;
   border: none;
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
@@ -12,7 +12,7 @@ export const AgregarBoton = styled.button`
   padding: 0.5em 1.5em;
   &:hover {
     box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.4);
-    background-color: #46DB54;
+    background-color: #46db54;
     cursor: pointer;
   }
 `;
@@ -27,16 +27,15 @@ export const AgregarDiv = styled.div`
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   justify-content: space-between;
-  
 `;
 
 export const CardText = styled.p`
   color: white;
-  font-size: .9em;
+  font-size: 0.9em;
 `;
 
 export const CharacterName = styled.h2`
-  color: #DBE649;
+  color: #dbe649;
   font-weight: bold;
   font-size: 1.6em;
   padding-bottom: 0em;
@@ -89,6 +88,4 @@ export const NavStyle = styled.nav`
   margin-left: auto;
   margin-right: auto;
   padding: 1.5rem;
-
 `;
-

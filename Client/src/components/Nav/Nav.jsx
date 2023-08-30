@@ -32,23 +32,19 @@ export default function Nav(props) {
           {" "}
           <ItemLi>about</ItemLi>
         </Link>
-        <Link to='favorites'>
+        <Link to="/fav">
           <ItemLi>favorites</ItemLi>
         </Link>
       </Lista>
-    
-        <AgregarDiv
-          style={divStyle}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <Input type="text" onChange={handleChange} />
-          <AgregarBoton onClick={() => props.onSearch(id)}>
-            Agregar
-          </AgregarBoton>
-        </AgregarDiv>
+
+      <AgregarDiv
+        style={divStyle}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <Input type="text" onChange={handleChange} />
+        <AgregarBoton onClick={() => props.onSearch(id)}>Agregar</AgregarBoton>
+      </AgregarDiv>
     </NavStyle>
   );
 }
-
-//* En este código, hemos agregado dos nuevos estados: hovered y setHovered, que se utilizan para controlar si el mouse está sobre el componente AgregarDiv. Cuando el mouse entra en el componente, se activa el estado hovered y aumentamos el tamaño del componente utilizando la propiedad transform en la variable divStyle. Cuando el mouse sale del componente, el estado hovered se desactiva y el tamaño vuelve a la normalidad.
