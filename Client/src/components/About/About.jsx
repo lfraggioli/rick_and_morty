@@ -1,5 +1,5 @@
 import React from "react";
-import image from "./36d6ec5e-e14b-48f7-9d87-3f91695fe844.jpg";
+import image from "./avatar.png";
 import Footer from "../Footer/Footer";
 import {
   AboutStyle,

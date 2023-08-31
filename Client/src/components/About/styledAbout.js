@@ -10,14 +10,13 @@ export const Container = styled.body`
   background-position: center;
   /* Ajusta según el tamaño de tu footer */
   position: relative;
-  max-height: 100%;
+  max-width: 100%;
   z-index: 0;
 `;
 export const Image = styled.img`
   margin-right: 5%;
-  height: 40%;
-  box-shadow: 10px 20px 15px rgba(0, 0, 0, 0.8);
-  border-radius: 10%;
+  height: 100%;
+  box-shadow: 10px 20px 15px rgba(0, 0, 0, 0.52);
 `;
 
 export const AboutStyle = styled.div`
@@ -35,10 +34,10 @@ export const AboutStyle = styled.div`
     7px
   ); /* Ajusta el valor para el nivel de desenfoque deseado */
   background-color: rgba(
-    255,
-    255,
-    255,
-    0.07
+    0,
+    0,
+    0,
+    0.5
   ); /* Ajusta el valor de transparencia del fondo */
 `;
 

@@ -5,7 +5,7 @@
   
 }
 main {
-   padding-bottom: 1em; /* Ajusta según el tamaño de tu footer */
+   padding-bottom: 2em; /* Ajusta según el tamaño de tu footer */
  }
  footer {
   display: flex-end;
@@ -14,7 +14,6 @@ main {
   background-color: #0f2027;
   position: absolute;
   height: 2em;
-  padding: 1em;
   bottom: 0;
   z-index: 1;
   width: 100%;

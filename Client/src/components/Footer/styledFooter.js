@@ -1,20 +1,20 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
-  display: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: space-around;
   background-color: #0f2027;
   position: fixed;
-  height: 2em;
-  padding: 1em;
   bottom: 0;
-  z-index: 2;
   width: 100%;
-  margin-bottom: 0;
+  padding: 1em;
+  z-index: 2;
 `;
 export const DivSocial = styled.div`
   align-items: center;
+  margin-top: 0;
 `;
 export const SocialButton = styled.a`
   display: inline-flex;
@@ -38,12 +38,10 @@ export const SocialButton = styled.a`
   }
 `;
 
-export const Text = styled.h3`
-  position: relative;
-  right: 0;
-  z-index: 3;
+export const Text = styled.h4`
   font-size: 1.2em;
+  padding-top: 0.5em;
+  padding-bottom: 0;
   font-family: "Ubuntu", sans-serif;
-  line-height: 0.5em;
   color: #fff;
 `;
