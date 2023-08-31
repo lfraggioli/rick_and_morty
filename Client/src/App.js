@@ -9,6 +9,7 @@ import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
+import Footer from "./components/Footer/Footer";
 import Favorites from "./components/Favorites/Favorites";
 import { useDispatch, useSelector } from "react-redux";
 import { loginState } from "./redux/actions";
@@ -71,9 +72,11 @@ function App() {
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
         ></Route>
+
         <Route path="/detail/:id" element={<Detail />}></Route>
         <Route path="/fav" element={<Favorites />}></Route>
       </Routes>
+      {/* {pathname !== "/" && <Footer />} */}
     </>
   );
 }

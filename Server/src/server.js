@@ -1,8 +1,6 @@
-const express = require("express");
 const server = require("./app");
 const { conn } = require("./DB_connection");
 const PORT = 3001;
-const router = require("../routes/index");
 
 //!Instalar Morgan
 //instalar cors

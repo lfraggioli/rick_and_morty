@@ -1,5 +1,22 @@
 .App {
-   text-align: center;
+  text-align: center;
+  position: relative; /* Añade esta propiedad */
+  max-height: 100vh;
+  
 }
-
-
+main {
+   padding-bottom: 1em; /* Ajusta según el tamaño de tu footer */
+ }
+ footer {
+  display: flex-end;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f2027;
+  position: absolute;
+  height: 2em;
+  padding: 1em;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  margin-bottom: 0;
+ }

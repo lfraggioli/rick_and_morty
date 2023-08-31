@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { connect, useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { orderCards, filterCards, getFav } from "../../redux/actions.js"; // Importa las actions que hayas creado
-import { StyledSelect, ContenedorFav } from "./FavouritesButton.js";
+import { StyledSelect } from "./FavouritesButton.js";
 import Card from "../Card/Card.jsx";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import Footer from "../Footer/Footer.jsx";
 
 function Favorites() {
   const myFavorites = useSelector((state) => state.myFavorites);
@@ -32,7 +35,26 @@ function Favorites() {
       setAux(true);
     }
   };
-
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+      slideToSlide: 3,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
   return (
     <>
       <StyledSelect onChange={handleOrder}>
@@ -49,7 +71,7 @@ function Favorites() {
         ))}
       </StyledSelect>
 
-      <ContenedorFav>
+      <Carousel responsive={responsive}>
         {myFavorites.map((favorite) => (
           <Card
             key={favorite.id}
@@ -61,7 +83,8 @@ function Favorites() {
             gender={favorite.gender}
           />
         ))}
-      </ContenedorFav>
+      </Carousel>
+      <Footer />
     </>
   );
 }
