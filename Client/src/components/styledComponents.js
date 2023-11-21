@@ -82,10 +82,34 @@ export const Input = styled.input`
 `;
 
 export const NavStyle = styled.nav`
-  background-color: #0f2027;
-  justify-content: space-between;
+  background-color: #303a49;
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.5rem;
+  max-width: 100%;
+  width: 1440px;
+  padding-top: 13px;
+  padding-right: 20px;
+  padding-bottom: 13px;
+  padding-left: 20px;
+  flex-direction: column;
+  @media (max-width: 991px) {
+    max-width: 100%;
+  }
+`;
+
+export const Div2 = styled.div`
+  display: flex;
+  max-width: 100%;
+  width: 1384px;
+  margin-top: -1px;
+  margin-left: 3px;
+  flex-direction: row;
+  align-items: flex-start;
+  align-self: center;
+  justify-content: space-between;
+  gap: 20px;
+  @media (max-width: 991px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+  }
 `;
